@@ -1,0 +1,46 @@
+{
+    "bridge": {
+        "name": "Homebridge",
+        "username": "CC:22:3D:E3:CE:30",
+        "port": 51826,
+        "pin": "031-45-154"
+    },
+    "description": "This is an example configuration file for Arduino-based temperature and humidity sensor. You can use this as a template for creating your own configuration file containing devices you actually own.",
+    "accessories": [
+    ],
+    "platforms": [
+        {
+            "platform": "Bluetooth",
+            "accessories": [
+                {
+                    "name": "Arduino",
+                    "address": "12:34:56:78:9A:BC",
+                    "services": [
+                        {
+                            "name": "Humidity Sensor",
+                            "type": "HumiditySensor",
+                            "UUID": "10525F60-CF73-11E6-9598-F8E2251C9A69",
+                            "characteristics": [
+                                {
+                                    "type": "CurrentRelativeHumidity",
+                                    "UUID": "10525F61-CF73-11E6-9598-F8E2251C9A69"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "Temperature Sensor",
+                            "type": "TemperatureSensor",
+                            "UUID": "F489CB00-C177-11E6-9598-9854249C9A66",
+                            "characteristics": [
+                                {
+                                    "type": "CurrentTemperature",
+                                    "UUID": "F489CB01-C177-11E6-9598-9854249C9A66"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
