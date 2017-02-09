@@ -56,14 +56,15 @@ Pi hub in);
 - since Arduino is an open source hardware, there's a chance you can
 find a nice knockoff, and those can be really cheap, and though I
 haven't seen any for Arduino 101, but I'm pretty sure there'll be
-plenty of them eventually, just like there is for UNO now;
+plenty of them eventually, just like
+[there is for UNO now](https://www.amazon.com/s/url=search-alias%3Daps&field-keywords=arduino+uno+clone&sprefix=arduino+uno+clo%2Caps%2C137);
 - finally, the fun you're gonna have while building it is, obviously,
 priceless. ;)
 
 Also worth mentioning that the reason we want to use Arduino 101 is
 simply because it's extremely convinient to have Bluetooth Low Energy
 already built in. And since our plan is to have that Arduino connected
-to an RPI-based hub, that is in it's turn connected to a WiFi network,
+to an RPI-based hub, that is in its turn connected to a WiFi network,
 using Pi 3 that comes with WiFi and Bluetooth is certainly a lot
 easier as well.
 
@@ -71,14 +72,14 @@ easier as well.
 
 Connecting DHT sensors to Arduino is pretty simple, see
 [this guide](https://learn.adafruit.com/dht/connecting-to-a-dhtxx-sensor),
-for example. If you go with AMD2302, it's even simpler: since it already
+for example. If you go with AM2302, it's even simpler: since it already
 has a resistor inside, you don't need any additional pullup resistors
 and can just stick the wires into the board: the black one gets grounded,
 the red one goes to 5V and the yellow is for the data, which we'll be
 using pin 2 for.
 
 And that's pretty much all the wiring that needs to be done for the
-project
+project.
 
 ## Programming Arduino
 
@@ -100,22 +101,22 @@ it to Apple HomeKit now.
 ## Setting Up Your Homebridge
 
 In order for your Arduino-based sensor to communicate with your Apple
-devices you should have some bridge server running. We're gonna use
-[Homebridge](https://github.com/nfarina/homebridge) which has a lot of
-plugins for different platforms, including one for BLE:
-[Homebridge Bluetooth Plugin](https://github.com/vojtamolda/homebridge-bluetooth).
+devices you should have some bridge server running on your WiFi network.
+We're gonna use [Homebridge](https://github.com/nfarina/homebridge) which
+has a lot of plugins for different platforms, including one for BLE: [Homebridge
+Bluetooth Plugin](https://github.com/vojtamolda/homebridge-bluetooth).
 This makes our task as easy as Pi (pun intended).
 
 Basically, assuming that you have your RPI set up (you can follow
 [this guide](https://www.raspberrypi.org/documentation/setup/), for example)
-and running one of the latest versions of Raspbian, all we need to do is
+and running one of the latest versions of Raspbian, all you need to do is
 to install Node, Homebridge (both covered
 [here](https://github.com/nfarina/homebridge/wiki/Running-HomeBridge-on-a-Raspberry-Pi))
-and BLE plugin (simply run `[sudo] npm install -g homebridge-bluetooth).
+and BLE plugin (simply run `[sudo] npm install -g homebridge-bluetooth`).
 I would recommend paying special attention to the
 [section describing running Homebridge on the system
 startup](https://github.com/nfarina/homebridge/wiki/Running-HomeBridge-on-a-Raspberry-Pi#running-homebridge-on-bootup),
-since it will let you have a box you can unplug at any moment, then
+since it would let you have a box you can unplug at any moment, then
 plug back, and it'll be up and running automatically in seconds.
 Configuration basics are covered there as well, but let's look at our
 specific case closer.
@@ -134,12 +135,12 @@ sketch.
 
 ## Running
 
-At this point all should be set up and ready to get going. Power-up your
+At this point all should be set up and ready to get going. Power up your
 Arduino using a wall adapter. It's tempting to try making your sensor
 completely wireless and try running it on a battery, but turns out
 Arduinos are actually consuming a lot of energy even when they are not
-doing anything, so trying to use, for example a 9V battery will run it
-dry in several days, unless you [optimize it on both software and hardware
+doing anything, so using, for example, a 9V battery will run it dry in
+several days, unless you [optimize it on both software and hardware
 side](https://hwstartup.wordpress.com/2013/03/11/how-to-run-an-arduino-on-a-9v-battery-for-weeks-or-months/).
 But I'd say it's a different topic, right now we just wanna see the device
 working.
